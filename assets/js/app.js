@@ -19,6 +19,7 @@ $(document).ready(function() {
     function init() {
         renderArray();
         renderPlanner();
+        renderCurrentDay();
     }
 
     // Run the render array function to update the array if necessary
@@ -52,6 +53,10 @@ $(document).ready(function() {
         for (var i = firstHour; i <= lastHour; i++) {
             $('#plannerBody').append('<p id="'+i+'"><strong>'+getHourFormatted(i)+'</strong>:<input type="text" value="'+plannerArray[today][i]+'" class="event" data-hour="'+i+'"/><button class="save" data-hour="'+i+'">Save</button></p>');
         }
+    }
+
+    function renderCurrentDay() {
+        $('#currentDay').text(moment().format('dddd, MMMM D, YYYY'));
     }
 
     // Click listener for save button and keyup listener for input
@@ -88,11 +93,7 @@ $(document).ready(function() {
         return moment().format('k');
     }
 
-    // Retrieve pretty versions of the date and time
-    function getDateFormatted() {
-
-    }
-
+    // Retrieve pretty version of the time
     function getHourFormatted(hr) {
        return moment(hr,'H').format('ha');
     }
