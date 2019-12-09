@@ -54,6 +54,19 @@ $(document).ready(function() {
         }
     }
 
+    // Click listener for save button and keyup listener for input
+    $('.save').on('click',saveEvent);
+    $('.event').on('keyup',saveEvent);
+
+    function saveEvent(e) {
+        // If the event type was a click (ie from the save button) OR an enter key (from the keyup listener)
+        if (e.type == "click" || e.keyCode == 13) {
+            var hour = $(this).data().hour;
+            plannerArray[today][hour] = $('input[data-hour='+hour+']').val();
+            storeArray();
+        }
+    }
+
     // Helper functions
 
     // Store/retrieve array in localStorage
