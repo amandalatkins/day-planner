@@ -51,7 +51,7 @@ $(document).ready(function() {
     function renderPlanner() {
         // $('#plannerBody').empty();
         for (var i = firstHour; i <= lastHour; i++) {
-            var html = '<div class="hour-row" id="'+i+'">';
+            var html = '<div class="hour-row '+isPastPresFut(i)+'" id="'+i+'">';
             html += '<div class="planner-container hour-label"><span>'+getHourFormatted(i)+'</span></div>';
             html += '<textarea class="planner-container event" data-hour="'+i+'">'+plannerArray[today][i]+'</textarea>';
             html += '<button class="planner-container save btn btn-primary" data-hour="'+i+'"><img src="assets/images/save-solid.svg"/></button>';
@@ -97,6 +97,16 @@ $(document).ready(function() {
     //Retrieves Current Hour
     function getHour() {
         return moment().format('k');
+    }
+
+    function isPastPresFut(i) {
+        if (i < hour) {
+            return "past";
+        } else if (i == hour) {
+            return "current";
+        } else if (i > hour) {
+            return "future";
+        }
     }
 
     // Retrieve pretty version of the time

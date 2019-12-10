@@ -1,3 +1,7 @@
+#plannerBody {
+    padding-bottom: 30px;
+}
+
 .hour-row {
     height: 100px;
 }
@@ -40,7 +44,36 @@
     padding: 1em;
 }
 
+.past > .event {
+    opacity: 0.5;
+    border-left: 5px solid #495057;
+}
+
+.past > .save {
+    opacity: 0.5;
+}
+
+.current > .event {
+    /* background-color: #f03e3e; */
+    border-left: 5px solid #40c057;
+}
+
+.future > .event {
+    /* background-color: #b2f2bb; */
+    border-left: 5px solid #495057;
+}
+
 .event:focus {
     outline:none;
-    border-left: 2px solid #007bff
+    border-left: 5px solid #007bff !important;
+    opacity: 1 !important;
+}
+
+.event:focus + .save {
+    opacity: 1 !important;
+}
+
+.current > .hour-label {
+    font-weight: 700;
+    font-size: 1.25em;
 }
