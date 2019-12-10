@@ -3,7 +3,13 @@
 }
 
 .hour-row {
-    height: 100px;
+    /* position:relative; */
+}
+
+.hour-label {
+    margin-top: 15px;
+    font-weight: 700;
+    color: #495057;
 }
 
 .hour-row:after {
@@ -12,19 +18,12 @@
     clear:both;
 }
 
-.planner-container {
-    height: 100%;
-    float:left;
-}
-
-.hour-label {
-    width: 8%
-}
-
 .save {
-    width: 10%;
+    width: 18%;
     border: 1px solid #fff;
     border-radius: 0 0.5rem 0.5rem 0;
+    float:left;
+    height: 75px;
 }
 
 .save > img {
@@ -41,7 +40,10 @@
     background-color: #f1f3f5;
     color: #343a40;
     border: 1px solid #fff;
-    padding: 1em;
+    padding: 0.5em;
+    height: 75px;
+    float:left;
+    border-radius: 0.25rem 0 0 0.25rem;
 }
 
 .past > .event {
@@ -54,7 +56,6 @@
 }
 
 .current > .event {
-    /* background-color: #f03e3e; */
     border-left: 5px solid #40c057;
 }
 
@@ -76,4 +77,37 @@
 .current > .hour-label {
     font-weight: 700;
     font-size: 1.25em;
+}
+
+.save:focus {
+    box-shadow: none;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .hour-row {
+        height: 100px;
+    }
+
+    .planner-container {
+        height: 100%;
+        float:left;
+    }
+
+    .hour-label {
+        width: 8%;
+        margin-top:0;
+        font-weight: 400;
+        border-top: 2px solid #f1f3f5;
+        padding-top:5px;
+    }
+
+    .save {
+        width: 10%;
+    }
+
+
 }
