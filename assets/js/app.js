@@ -51,7 +51,13 @@ $(document).ready(function() {
     function renderPlanner() {
         // $('#plannerBody').empty();
         for (var i = firstHour; i <= lastHour; i++) {
-            $('#plannerBody').append('<p id="'+i+'"><strong>'+getHourFormatted(i)+'</strong>:<input type="text" value="'+plannerArray[today][i]+'" class="event" data-hour="'+i+'"/><button class="save" data-hour="'+i+'">Save</button></p>');
+            var html = '<div class="hour-row" id="'+i+'">';
+            html += '<div class="planner-container hour-label"><span>'+getHourFormatted(i)+'</span></div>';
+            html += '<textarea class="planner-container event" data-hour="'+i+'">'+plannerArray[today][i]+'</textarea>';
+            html += '<button class="planner-container save btn btn-primary" data-hour="'+i+'"><img src="assets/images/save-solid.svg"/></button>';
+            html += '</div>';
+
+            $('#plannerBody').append(html);
         }
     }
 
@@ -67,7 +73,7 @@ $(document).ready(function() {
         // If the event type was a click (ie from the save button) OR an enter key (from the keyup listener)
         if (e.type == "click" || e.keyCode == 13) {
             var hour = $(this).data().hour;
-            plannerArray[today][hour] = $('input[data-hour='+hour+']').val();
+            plannerArray[today][hour] = $('textarea[data-hour='+hour+']').val();
             storeArray();
         }
     }
