@@ -47,7 +47,7 @@ Open ``index.html`` in your prefered web browser
 
 The following snippet shows the setup of the object structure that powers the planner.
 
-```
+```javascript
     // Run the renderObject function to update the Object if necessary
     function renderObject() {
         // If there's anything in localStorage, let's parse it
